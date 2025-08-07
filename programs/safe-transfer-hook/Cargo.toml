@@ -1,0 +1,23 @@
+[package]
+name = "safe-transfer-hook"
+version = "0.1.0"
+description = "A safe Transfer Hook program for Token-2022 whitelist testing"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "safe_transfer_hook"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+default = []
+
+[dependencies]
+anchor-lang = "0.29.0"
+anchor-spl = "0.29.0"
+spl-token-2022 = { version = "0.9.0", features = ["no-entrypoint"] }
+spl-transfer-hook-interface = "0.6.1"
